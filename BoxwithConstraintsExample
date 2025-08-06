@@ -1,0 +1,35 @@
+@Composable
+fun ResponsiveContentExample(innerPadding: PaddingValues) {
+    BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
+        if (this.minWidth >= 300.dp && this.maxWidth <= 500.dp) {
+            // Display content optimized for larger screens
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding)// ใช้ padding ที่ Scaffold ส่งมา
+            ) {
+                Text(
+                    fontSize = 50.sp,
+                    text = "Mobile Screen",
+                    modifier = Modifier.background(Color.Green)
+                )
+                // เนื้อหาอื่น ๆ
+            }
+        } else if(this.minWidth >= 2000.dp && this.maxWidth <= 2560.dp) {
+            // Display content optimized for smaller screens
+            // Narrow screen layout
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding) // ใช้ padding ที่ Scaffold ส่งมา
+            ) {
+                Text(
+                    fontSize = 50.sp,
+                    text = "Tablet Screen",
+                    modifier = Modifier.background(Color.Green)
+                )
+                // เนื้อหาอื่น ๆ
+            }
+        }
+    }
+}
